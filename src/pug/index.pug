@@ -1,0 +1,59 @@
+include ./components/card.pug
+include ./components/button.pug
+include ./components/icons.pug
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title MNTN
+  body.bg-dark
+    include ./includes/header.pug
+
+    main
+      section#start
+        .w-full.overflow-hidden.absolute.top-0.left-0.aspect-square
+          img.js-parallax.layer-1.fixed.w-full.bg-bottom.bg-no-repeat.-z-10(src='../assets/images/layer-1.png' data-depth='0.10')
+          .start-gradient.fixed.top-0.left-0.w-full.-z-10(class='aspect-[8/5]')
+          img.js-parallax.layer-2.fixed.w-full.bg-bottom.bg-no-repeat.-z-10(src='../assets/images/layer-2.png' data-depth='0.20')
+          img.js-parallax.layer-3.fixed.w-full.bg-bottom.bg-no-repeat.-z-10(src='../assets/images/layer-3.png' data-depth='0.50')
+          .fixed.top-72.right-16.flex.items-stretch.space-x-6.z-10.js-fade-in-right
+            ul.flex.flex-col.items-end.text-white.font-bold.space-y-6
+              li.py-2
+                a.text-white.fill-white.transition.duration-300.js-scroll(href='#' class='hover:text-accent hover:fill-accent' data-target='start') Start
+              li.py-2
+                a.text-white.fill-white.transition.duration-300.js-scroll(href='#' class='hover:text-accent hover:fill-accent' data-target='one') 01
+              li.py-2
+                a.text-white.fill-white.transition.duration-300.js-scroll(href='#' class='hover:text-accent hover:fill-accent' data-target='two') 02
+              li.py-2
+                a.text-white.fill-white.transition.duration-300.js-scroll(href='#' class='hover:text-accent hover:fill-accent' data-target='three') 03
+            .relative
+              .js-slider-background.h-full(class='w-[3px] bg-white/50')
+              .js-slider-bar.absolute.top-0.left-0.bg-white.transition-all.duration-300(class='w-[3px]')
+
+        .relative.w-full.flex.justify-center.pt-72(class='aspect-[9/6]')
+          .start-gradient-two.absolute.left-0.w-full(class='aspect-[9/5]')
+          .max-w-3xl.space-y-6(class='w-8/12')
+            .flex.items-center.space-x-6.js-fade-in-up
+              .w-16.bg-accent(class='h-0.5')
+              span.font-bold.uppercase.text-accent.tracking-widest A Hiking guide
+            h1.font-serif.font-medium.text-7xl.text-white.js-fade-in-up Be prepared for the Mountains and beyond!
+            .js-fade-in-up
+              +button('button', '', '', 'scroll down', arrowDown, 'right', 'animate-bounce')(class='js-scroll' data-target='one')
+
+      section#one.relative.py-20
+        .max-w-6xl.mx-auto(class='w-9/12')
+          +card('What level of  hiker are you?', 'GEt Started', 'Determining what level of hiker you are can be an important tool when planning future hikes. This hiking level guide will help you plan hikes according to different hike ratings set by various websites like All Trails and Modern Hiker. What type of hiker are you – novice, moderate, advanced moderate, expert, or expert backpacker?', '../assets/images/01.jpg', '01', '')
+
+      section#two.relative.bg-dark.py-20
+        .max-w-6xl.mx-auto(class='w-9/12')
+          +card('Picking the right Hiking Gear!', 'Hiking Essentials', 'The nice thing about beginning hiking is that you don’t really need any special gear, you can probably get away with things you already have.<br>Let’s start with clothing. A typical mistake hiking beginners make is wearing jeans and regular clothes, which will get heavy and chafe wif they get sweaty or wet.', '../assets/images/02.jpg', '02', 'order-1')
+
+      section#three.relative.bg-dark.py-20
+        .max-w-6xl.mx-auto(class='w-9/12')
+          +card('Understand Your Map & Timing', 'where you go is the key', 'To start, print out the hiking guide and map. If it’s raining, throw them in a Zip-Lock bag. Read over the guide, study the map, and have a good idea of what to expect. I like to know what my next landmark is as I hike. For example, I’ll read the guide and know that say, in a mile, I make a right turn at the junction..', '../assets/images/03.jpg', '03', '')
+
+    include ./includes/footer.pug
+
+    div(class='')
